@@ -12,6 +12,9 @@ public class ArticleExtend extends Article {
     public static final String STATUS_CHECK_PASS="审核通过";
     public static final String STATUS_CHECK_NOPASS="审核未通过";
 
+    /*
+        随便加点注释
+     */
     private Category category;
 
     private List<Comment> comments;
