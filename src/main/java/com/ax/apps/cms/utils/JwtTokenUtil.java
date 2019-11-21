@@ -36,7 +36,7 @@ public class JwtTokenUtil {
     public static final String base64Secret ="MDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjY=";
     private static final String clientId = "098f6bcd4621d373cade4e832627b4f6";
     private static final String name = "restapiuser";
-    private static final int expiresSecond = 1728000000;
+    private static final int expiresSecond = 17280000;
     /**
      * 解析jwt
      * @param jsonWebToken
@@ -51,10 +51,10 @@ public class JwtTokenUtil {
             return claims;
         } catch (ExpiredJwtException  eje) {
             log.error("===== Token过期 =====", eje);
-            throw new CustomerException("token过期");
+            throw new UnAuthorizedException("token过期");
         } catch (Exception e){
             log.error("===== token解析异常 =====", e);
-            throw new CustomerException("token解析异常");
+            throw new UnAuthorizedException("token解析异常");
         }
     }
 

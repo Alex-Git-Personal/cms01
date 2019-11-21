@@ -48,7 +48,7 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
 
     // 判断权限
     private boolean auth(long userId,String path){
-        System.out.println(path);
+//        System.out.println(path);
         // article/findAll
         // 查询出该用户的所有权限
         List<BasePrivilege> privileges = basePrivilegeService.findByUserId(userId);
