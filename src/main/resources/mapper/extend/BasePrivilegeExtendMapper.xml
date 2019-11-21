@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ax.apps.cms.dao.extend.BasePrivilegeExtendMapper">
+
+  <select id="selectByRoleId" resultType="com.ax.apps.cms.bean.BasePrivilege" parameterType="long">
+    select p.* from base_privilege p,base_role_privilege rp
+    where p.id=rp.privilege_id and rp.role_id=#{id}
+  </select>
+
+    <select id="selectAll" resultMap="PrivilegeTreeResultMap">
+        select * from base_privilege where parent_id is null
+    </select>
+    <select id="selectByParentId"
+            resultType="com.ax.apps.cms.bean.BasePrivilege"
+            parameterType="long">
+        select * from base_privilege where parent_id=#{id}
+    </select>
+    <select id="selectByUserId" parameterType="long" resultType="com.ax.apps.cms.bean.BasePrivilege">
+        select p.* from base_user_role ur,base_role_privilege rp,base_privilege p
+        where ur.role_id=rp.role_id and rp.privilege_id=p.id and ur.user_id=#{id}
+    </select>
+    
+    <resultMap id="PrivilegeTreeResultMap"
+               type="com.ax.apps.cms.vm.PrivilegeTree"
+               extends="com.ax.apps.cms.dao.BasePrivilegeMapper.BaseResultMap">
+        <collection property="children" column="id"
+                    select="com.ax.apps.cms.dao.extend.BasePrivilegeExtendMapper.selectByParentId"/>
+    </resultMap>
+</mapper>

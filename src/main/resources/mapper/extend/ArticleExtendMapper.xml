@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ax.apps.cms.dao.extend.ArticleExtendMapper">
+
+  <!--使用的嵌套语句查询,效率低下-->
+  <resultMap id="ArticleExtendMapper"
+             type="com.ax.apps.cms.bean.extend.ArticleExtend"
+             extends="com.ax.apps.cms.dao.ArticleMapper.BaseResultMap">
+    <association property="category"
+                 column="category_id"
+                 select="com.ax.apps.cms.dao.CategoryMapper.selectByPrimaryKey"></association>
+    <collection property="comments" column="id" select="com.ax.apps.cms.dao.extend.CommentExtendMapper.selectByArticleId"/>
+  </resultMap>
+  <select id="selectAll" resultMap="ArticleExtendMapper">
+    select * from cms_article
+  </select>
+
+  <!--<select id="selectAll" resultMap="ArticleExtendMapper">
+    select a.*,c.name name,c.description description,c.no no,c.parent_id parent_id
+from cms_article a,cms_category c where a.category_id=c.id
+  </select>
+  <resultMap id="ArticleExtendMapper"
+             type="com.ax.apps.cms.bean.extend.ArticleExtend"
+             extends="com.ax.apps.cms.dao.ArticleMapper.BaseResultMap">
+    <association property="category" javaType="com.ax.apps.cms.bean.Category">
+      <id property="id" column="category_id"></id>
+      <result property="name" column="name"/>
+      <result property="description" column="description"/>
+      <result property="no" column="no"/>
+      <result property="parentId" column="parent_id"/>
+    </association>
+  </resultMap>-->
+  <select id="findById" parameterType="long" resultMap="ArticleExtendMapper">
+    select * from cms_article where id=#{id}
+  </select>
+</mapper>
