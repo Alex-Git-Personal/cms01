@@ -7,6 +7,7 @@ import com.ax.apps.cms.dao.extend.BasePrivilegeExtendMapper;
 import com.ax.apps.cms.service.IBasePrivilegeService;
 import com.ax.apps.cms.utils.CustomerException;
 import com.ax.apps.cms.vm.PrivilegeTree;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -15,10 +16,10 @@ import java.util.List;
 @Service
 public class BasePrivilegeService implements IBasePrivilegeService {
 
-    @Resource
+    @Autowired
     private BasePrivilegeExtendMapper privilegeExtendMapper;
 
-    @Resource
+    @Autowired
     private BasePrivilegeMapper privilegeMapper;
     @Override
     public List<PrivilegeTree> findPrivilegeTree() {

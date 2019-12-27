@@ -7,6 +7,7 @@ import com.ax.apps.cms.dao.ArticleMapper;
 import com.ax.apps.cms.dao.extend.ArticleExtendMapper;
 import com.ax.apps.cms.service.IArticleService;
 import com.ax.apps.cms.utils.CustomerException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -16,10 +17,10 @@ import java.util.List;
 @Service
 public class ArticleServiceImpl implements IArticleService {
 
-    @Resource
+    @Autowired
     private ArticleMapper articleMapper;
 
-    @Resource
+    @Autowired
     private ArticleExtendMapper articleExtendMapper;
 
     @Override

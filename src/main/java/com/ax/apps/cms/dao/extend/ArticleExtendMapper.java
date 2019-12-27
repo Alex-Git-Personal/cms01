@@ -1,12 +1,14 @@
 package com.ax.apps.cms.dao.extend;
 
 import com.ax.apps.cms.bean.extend.ArticleExtend;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * ArticleMapper扩展的接口
  */
+@Repository
 public interface ArticleExtendMapper {
 
     /**

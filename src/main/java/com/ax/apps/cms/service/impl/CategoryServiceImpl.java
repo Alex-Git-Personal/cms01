@@ -5,6 +5,7 @@ import com.ax.apps.cms.bean.CategoryExample;
 import com.ax.apps.cms.dao.CategoryMapper;
 import com.ax.apps.cms.service.ICategoryService;
 import com.ax.apps.cms.utils.CustomerException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,7 +15,7 @@ import java.util.List;
 @Service
 public class CategoryServiceImpl implements ICategoryService {
 
-    @Resource
+    @Autowired
     private CategoryMapper categoryMapper;
 
     @Override

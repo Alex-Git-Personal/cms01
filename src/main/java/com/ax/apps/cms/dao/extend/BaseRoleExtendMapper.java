@@ -2,9 +2,11 @@ package com.ax.apps.cms.dao.extend;
 
 import com.ax.apps.cms.bean.BaseRole;
 import com.ax.apps.cms.bean.extend.BaseRoleExtend;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface BaseRoleExtendMapper {
     /**
      * 查询角色根据用户的id

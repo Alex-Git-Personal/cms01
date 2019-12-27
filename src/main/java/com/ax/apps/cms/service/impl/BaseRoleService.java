@@ -10,6 +10,7 @@ import com.ax.apps.cms.dao.BaseRolePrivilegeMapper;
 import com.ax.apps.cms.dao.extend.BaseRoleExtendMapper;
 import com.ax.apps.cms.service.IBaseRoleService;
 import com.ax.apps.cms.utils.CustomerException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,13 +22,13 @@ import java.util.List;
 @Service
 public class BaseRoleService implements IBaseRoleService {
 
-    @Resource
+    @Autowired
     private BaseRoleMapper roleMapper;
 
-    @Resource
+    @Autowired
     private BaseRoleExtendMapper roleExtendMapper;
 
-    @Resource
+    @Autowired
     private BaseRolePrivilegeMapper baseRolePrivilegeMapper;
 
     @Override

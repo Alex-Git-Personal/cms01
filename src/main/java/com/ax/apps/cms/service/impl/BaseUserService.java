@@ -11,6 +11,7 @@ import com.ax.apps.cms.dao.extend.BaseUserExtendMapper;
 import com.ax.apps.cms.service.IBaseUserService;
 import com.ax.apps.cms.utils.CustomerException;
 import com.ax.apps.cms.vm.UserVM;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,11 +24,11 @@ import java.util.List;
 @Service
 public class BaseUserService implements IBaseUserService {
 
-    @Resource
+    @Autowired
     private BaseUserExtendMapper baseUserExtendMapper;
-    @Resource
+    @Autowired
     private BaseUserMapper baseUserMapper;
-    @Resource
+    @Autowired
     private BaseUserRoleMapper baseUserRoleMapper;
     @Override
     public BaseUserExtend findById(long id) {

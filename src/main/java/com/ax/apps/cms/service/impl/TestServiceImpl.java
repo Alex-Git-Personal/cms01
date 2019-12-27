@@ -4,6 +4,7 @@ import com.ax.apps.cms.bean.Test;
 import com.ax.apps.cms.bean.TestExample;
 import com.ax.apps.cms.dao.TestMapper;
 import com.ax.apps.cms.service.ITestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -12,7 +13,7 @@ import java.util.List;
 @Service("testService")
 public class TestServiceImpl implements ITestService {
 
-    @Resource
+    @Autowired
     private TestMapper testMapper;
     @Override
     public void saveOrUpdate(Test test) {
